@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catatan Keuangan</title>
+  <meta name="description" content="Catatan Keuangan Pribadi by zakkimusyarrof">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Keuangan Zakki">
+  <meta property="og:description" content="Catatan Keuangan Pribadi by zakkimusyarrof">
+  <meta property="og:url" content="https://github.com/zakkimusyarrof/keuanganzakki">
+  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/zakkimusyarrof/keuanganzakki@main/favicon.png">
+  <meta property="og:image:alt" content="https://cdn.jsdelivr.net/gh/zakkimusyarrof/keuanganzakki@main/preview.jpg">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:site_name" content="Keuangan Zakki">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Keuangan Zakki">
+  <meta name="twitter:description" content="Catatan Keuangan Pribadi by zakkimusyarrof">
+  <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zakkimusyarrof/keuanganzakki@main/favicon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/zakkimusyarrof/keuanganzakki@main/favicon.png">
+
+  <meta name="theme-color" content="#4f46e5">
+
+  <style>
+    :root {
+      --bg1: #eef2ff;
+      --bg2: #f5f3ff;
+      --bg3: #fdf2f8;
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: rgba(255,255,255,0.78);
+      --border: rgba(255,255,255,0.55);
+      --shadow: 0 20px 50px rgba(79,70,229,0.18);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #c7d2fe 0%, transparent 30%),
+        radial-gradient(circle at bottom right, #fbcfe8 0%, transparent 28%),
+        linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(79,70,229,0.10);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(79,70,229,0.18);
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 5vw, 42px);
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 auto;
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .status {
+      margin-top: 22px;
+      font-size: 14px;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .dots::after {
+      content: "";
+      display: inline-block;
+      width: 1.2em;
+      text-align: left;
+      animation: dots 1.2s steps(4, end) infinite;
+    }
+
+    @keyframes dots {
+      0% { content: ""; }
+      25% { content: "."; }
+      50% { content: ".."; }
+      75% { content: "..."; }
+      100% { content: ""; }
+    }
+
+    .actions {
+      margin-top: 26px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 16px;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: white;
+      box-shadow: 0 12px 28px rgba(79,70,229,0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.8);
+      color: var(--text);
+      border: 1px solid rgba(209,213,219,0.85);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .foot {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    @media (max-width: 520px) {
+      .card {
+        padding: 28px 20px;
+        border-radius: 24px;
+      }
+      .actions {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <div class="badge">Web App</div>
+
+      <div class="logo">
+        <img src="https://cdn.jsdelivr.net/gh/zakkimusyarrof/keuanganzakki@main/favicon.png" alt="Logo aplikasi">
+      </div>
+
+      <h1>Catatan Keuangan</h1>
+      <p>Catatan Keuangan Pribadi by zakkimusyarrof</p>
+
+      <div class="status">
+        Membuka aplikasi<span class="dots"></span>
+      </div>
+
+      <div class="actions">
+        <a id="openAppBtn" class="btn btn-primary" href="https://script.google.com/macros/s/AKfycbx6Am_lCng3GDOs36OReQQOkOWCUNy3Er0PnpE1WWLERRRWHeXXWrw4ltvZc7ewgpCH/exec">Buka Aplikasi</a>
+        <button id="copyBtn" class="btn btn-secondary" type="button">Salin Link Aplikasi</button>
+      </div>
+
+      <div class="foot">
+        Bila tidak terbuka otomatis, tekan tombol <strong>Buka Aplikasi</strong>.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const APP_URL = "https://script.google.com/macros/s/AKfycbx6Am_lCng3GDOs36OReQQOkOWCUNy3Er0PnpE1WWLERRRWHeXXWrw4ltvZc7ewgpCH/exec";
+    const REDIRECT_DELAY = 1200;
+
+    document.getElementById("openAppBtn").href = APP_URL;
+
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(APP_URL);
+        document.getElementById("copyBtn").textContent = "Link berhasil disalin";
+        setTimeout(() => {
+          document.getElementById("copyBtn").textContent = "Salin Link Aplikasi";
+        }, 1800);
+      } catch (e) {
+        alert("Gagal menyalin link. Silakan salin manual:\n" + APP_URL);
+      }
+    });
+
+    setTimeout(() => {
+      window.location.href = APP_URL;
+    }, REDIRECT_DELAY);
+  </script>
+</body>
+</html>
